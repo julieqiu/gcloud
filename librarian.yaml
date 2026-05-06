@@ -63,6 +63,8 @@ libraries:
     apis:
       - path: google/cloud/beyondcorp/clientgateways/v1
   - name: biglake
+    gcloud:
+      skip_client: true
   - name: bigquery
     apis:
       - path: google/cloud/bigquery/v2
@@ -90,6 +92,8 @@ libraries:
   - name: billing
   - name: binaryauthorization
   - name: blockchainnodeengine
+    gcloud:
+      skip_client: true
   - name: certificatemanager
   - name: ces
   - name: chronicle
@@ -113,6 +117,8 @@ libraries:
   - name: config
   - name: configdelivery
   - name: connectors
+    gcloud:
+      skip_client: true
   - name: contactcenterinsights
   - name: datacatalog
   - name: datacataloglineage
@@ -238,9 +244,13 @@ libraries:
   - name: paymentgatewayissuerswitch
     apis:
       - path: google/cloud/paymentgateway/issuerswitch/v1
+    gcloud:
+      skip_client: true
   - name: paymentgatewayissuerswitchaccountmanager
     apis:
       - path: google/cloud/paymentgateway/issuerswitch/accountmanager/v1
+    gcloud:
+      skip_client: true
   - name: policysimulator
   - name: policytroubleshooter
   - name: policytroubleshooteriam
@@ -299,6 +309,8 @@ libraries:
     apis:
       - path: google/cloud/speech/v2
   - name: sql
+    gcloud:
+      skip_client: true
   - name: storagebatchoperations
   - name: storageinsights
   - name: storagetransfer
@@ -318,6 +330,8 @@ libraries:
   - name: telcoautomation
   - name: texttospeech
   - name: timeseriesinsights
+    gcloud:
+      skip_client: true
   - name: tpu
     apis:
       - path: google/cloud/tpu/v2
@@ -329,6 +343,8 @@ libraries:
     gcloud:
       client_path: cloud.google.com/go/translate/apiv3
   - name: universalledger
+    gcloud:
+      skip_client: true
   - name: vectorsearch
   - name: videointelligence
   - name: videolivestream

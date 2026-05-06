@@ -27,6 +27,7 @@ require (
 	cloud.google.com/go/cloudcontrolspartner v1.9.0
 	cloud.google.com/go/clouddms v1.8.8
 	cloud.google.com/go/cloudsecuritycompliance v0.5.0
+	cloud.google.com/go/cloudtasks v1.13.7
 	cloud.google.com/go/commerce v1.6.0
 	cloud.google.com/go/confidentialcomputing v1.15.0
 	cloud.google.com/go/config v1.10.0
@@ -44,6 +45,7 @@ require (
 	cloud.google.com/go/dialogflow v1.76.0
 	cloud.google.com/go/discoveryengine v1.28.0
 	cloud.google.com/go/documentai v1.42.0
+	cloud.google.com/go/domains v0.10.7
 	cloud.google.com/go/edgecontainer v1.4.4
 	cloud.google.com/go/edgenetwork v1.7.0
 	cloud.google.com/go/essentialcontacts v1.7.7
@@ -52,6 +54,7 @@ require (
 	cloud.google.com/go/financialservices v0.5.0
 	cloud.google.com/go/functions v1.19.7
 	cloud.google.com/go/gkebackup v1.8.1
+	cloud.google.com/go/gkehub v0.16.0
 	cloud.google.com/go/gkemulticloud v1.6.0
 	cloud.google.com/go/gsuiteaddons v1.7.8
 	cloud.google.com/go/hypercomputecluster v0.6.0
@@ -75,6 +78,7 @@ require (
 	cloud.google.com/go/netapp v1.16.0
 	cloud.google.com/go/networkconnectivity v1.21.0
 	cloud.google.com/go/networkmanagement v1.23.0
+	cloud.google.com/go/networksecurity v0.11.0
 	cloud.google.com/go/networkservices v0.10.0
 	cloud.google.com/go/notebooks v1.12.7
 	cloud.google.com/go/optimization v1.7.7
@@ -89,6 +93,7 @@ require (
 	cloud.google.com/go/privilegedaccessmanager v0.7.0
 	cloud.google.com/go/pubsublite v1.8.2
 	cloud.google.com/go/rapidmigrationassessment v1.5.0
+	cloud.google.com/go/recaptchaenterprise/v2 v2.21.0
 	cloud.google.com/go/recommender v1.13.6
 	cloud.google.com/go/redis v1.18.3
 	cloud.google.com/go/resourcemanager v1.10.7
@@ -111,9 +116,12 @@ require (
 	cloud.google.com/go/talent v1.8.4
 	cloud.google.com/go/telcoautomation v1.5.0
 	cloud.google.com/go/texttospeech v1.16.0
+	cloud.google.com/go/tpu v1.8.4
+	cloud.google.com/go/translate v1.12.7
 	cloud.google.com/go/vectorsearch v0.10.0
 	cloud.google.com/go/video v1.27.1
 	cloud.google.com/go/videointelligence v1.12.7
+	cloud.google.com/go/vision/v2 v2.9.6
 	cloud.google.com/go/visionai v0.9.0
 	cloud.google.com/go/vmmigration v1.10.0
 	cloud.google.com/go/vmwareengine v1.3.6

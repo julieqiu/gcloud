@@ -4,10 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	timeseriesinsights "cloud.google.com/go/timeseriesinsights/apiv1"
-	"cloud.google.com/go/timeseriesinsights/apiv1/timeseriesinsightspb"
 	"github.com/urfave/cli/v3"
-	"google.golang.org/protobuf/encoding/protojson"
 )
 
 // Command returns the gcloud timeseriesinsights command tree.
@@ -31,29 +28,9 @@ func Command() *cli.Command {
 					{
 						Name:  "create",
 						Usage: "create datasets",
-						Flags: []cli.Flag{
-							&cli.StringFlag{Name: "name", Usage: "The name.", Required: false},
-						},
 						Action: func(ctx context.Context, cmd *cli.Command) error {
 							parent := fmt.Sprintf("projects/%s", cmd.String("project"))
-							client, err := timeseriesinsights.NewTimeseriesInsightsControllerClient(ctx)
-							if err != nil {
-								return err
-							}
-							defer client.Close()
-							req := &timeseriesinsightspb.CreateDataSetRequest{Parent: parent}
-							req.Dataset = &timeseriesinsightspb.DataSet{
-								Name: cmd.String("name"),
-							}
-							resp, err := client.CreateDataSet(ctx, req)
-							if err != nil {
-								return err
-							}
-							out, err := protojson.MarshalOptions{Multiline: true, Indent: "  "}.Marshal(resp)
-							if err != nil {
-								return err
-							}
-							fmt.Println(string(out))
+							fmt.Printf("Executing create on %s\n", parent)
 							return nil
 						},
 					},
@@ -65,16 +42,7 @@ func Command() *cli.Command {
 						},
 						Action: func(ctx context.Context, cmd *cli.Command) error {
 							name := fmt.Sprintf("projects/%s/datasets/%s", cmd.String("project"), cmd.String("dataset"))
-							client, err := timeseriesinsights.NewTimeseriesInsightsControllerClient(ctx)
-							if err != nil {
-								return err
-							}
-							defer client.Close()
-							req := &timeseriesinsightspb.DeleteDataSetRequest{Name: name}
-							if err := client.DeleteDataSet(ctx, req); err != nil {
-								return err
-							}
-							fmt.Printf("Deleted %s\n", name)
+							fmt.Printf("Executing delete on %s\n", name)
 							return nil
 						},
 					},

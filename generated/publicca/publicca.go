@@ -1,0 +1,53 @@
+package publicca
+
+import (
+	"context"
+	"fmt"
+
+	publicca "cloud.google.com/go/security/publicca/apiv1"
+	"cloud.google.com/go/security/publicca/apiv1/publiccapb"
+	"github.com/urfave/cli/v3"
+	"google.golang.org/protobuf/encoding/protojson"
+)
+
+// Command returns the gcloud publicca command tree.
+func Command() *cli.Command {
+	return &cli.Command{
+		Name:  "publicca",
+		Usage: "manage Public Certificate Authority API resources",
+		Commands: []*cli.Command{
+			{
+				Name:  "external-account-keys",
+				Usage: "Manage external-account-keys resources",
+				Commands: []*cli.Command{
+					{
+						Name:  "create",
+						Usage: "create external-account-keys",
+						Flags: []cli.Flag{
+							&cli.StringFlag{Name: "location", Usage: "The location.", Required: true},
+						},
+						Action: func(ctx context.Context, cmd *cli.Command) error {
+							parent := fmt.Sprintf("projects/%s/locations/%s", cmd.String("project"), cmd.String("location"))
+							client, err := publicca.NewPublicCertificateAuthorityClient(ctx)
+							if err != nil {
+								return err
+							}
+							defer client.Close()
+							req := &publiccapb.CreateExternalAccountKeyRequest{Parent: parent}
+							resp, err := client.CreateExternalAccountKey(ctx, req)
+							if err != nil {
+								return err
+							}
+							out, err := protojson.MarshalOptions{Multiline: true, Indent: "  "}.Marshal(resp)
+							if err != nil {
+								return err
+							}
+							fmt.Println(string(out))
+							return nil
+						},
+					},
+				},
+			},
+		},
+	}
+}
